@@ -1,3 +1,5 @@
+import { Widget } from "./components/Widget";
+
 export function App() {
-  return <h1>Hello from NLW</h1>;
+  return <Widget />;
 }
