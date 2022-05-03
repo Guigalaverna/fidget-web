@@ -6,6 +6,7 @@ import Thought from "../../../assets/thought.svg";
 import { useState } from "react";
 import { FeedbackTypeStep } from "./Steps/FeedbackTypeStep";
 import { FeedbackContentStep } from "./Steps/FeedbackContentStep";
+import { FeedbackSuccessStep } from "./Steps/FeedbackSuccessStep";
 
 export type FeedbackType = keyof typeof feedbackTypes;
 
@@ -38,20 +39,29 @@ export const feedbackTypes = {
 export function WidgetForm() {
   const [selectedFeebackType, setSelectedFeedbackType] =
     useState<FeedbackType | null>();
+  const [feedbackSent, setFeedbackSent] = useState(false);
 
   function handleRestartFeedback() {
     setSelectedFeedbackType(null);
+    setFeedbackSent(false);
   }
 
   return (
-    <div className="bg-zinc-9 p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
-      {!selectedFeebackType ? (
-        <FeedbackTypeStep onFeedbackTypeChanged={setSelectedFeedbackType} />
+    <div className="bg-zinc-900 p-4 relative rounded-2xl mb-4 flex flex-col items-center shadow-lg w-[calc(100vw-2rem)] md:w-auto">
+      {feedbackSent ? (
+        <FeedbackSuccessStep onFeedbackRestart={handleRestartFeedback} />
       ) : (
-        <FeedbackContentStep
-          onFeedbackRestart={handleRestartFeedback}
-          selectedType={selectedFeebackType}
-        />
+        <>
+          {!selectedFeebackType ? (
+            <FeedbackTypeStep onFeedbackTypeChanged={setSelectedFeedbackType} />
+          ) : (
+            <FeedbackContentStep
+              onFeedbackRestart={handleRestartFeedback}
+              onFeedbackSent={setFeedbackSent}
+              selectedType={selectedFeebackType}
+            />
+          )}
+        </>
       )}
 
       <footer className="text-neutral-400">
