@@ -36,7 +36,7 @@ export function FeedbackSuccessStep({
 
         <button
           onClick={onFeedbackRestart}
-          className="py-2 px-6 mt-6 bg-zinc-100 dark:bg-zinc-800 rounded-md border-transparent text-sm leading-6 hover:bg-zinc-200 dark:text-zinc-100 transition-colors duration-200 focus:otuline-none focus:ring-2 text-zinc-800 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 focus:ring-1 focus:outline-none"
+          className="py-2 px-6 mt-6 bg-zinc-100 dark:bg-zinc-800 rounded-md border-transparent text-sm leading-6 hover-zinc-200 dark:hover:bg-zinc-700 dark:text-zinc-100 transition-colors duration-200 focus:otuline-none focus:ring-2 text-zinc-800 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 focus:ring-1 focus:outline-none"
         >
           Quero enviar outro
         </button>
