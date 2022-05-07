@@ -43,12 +43,12 @@ export function ScreenshotButton({
     <button
       type="button"
       onClick={handleTakeScreenshot}
-      className="bg-zinc-800 p-2 rounded-md border-transparent hover:bg-zinc-700 transition-colors duration-200 focus:otuline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 focus:ring-1 focus:outline-none"
+      className="bg-zinc-200 dark:bg-zinc-800 p-2 rounded-md border-transparent hover:bg-zinc-700 transition-colors duration-200 focus:otuline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 focus:ring-1 focus:outline-none"
     >
       {isTakingScreenshot ? (
         <Loading />
       ) : (
-        <Camera className="w-6 h-6 text-zinc-100" />
+        <Camera className="w-6 h-6 text-zinc-800 dark:text-zinc-100" />
       )}
     </button>
   );
